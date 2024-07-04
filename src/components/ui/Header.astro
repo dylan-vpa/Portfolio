@@ -6,14 +6,14 @@
   <div>
     <nav>
       <ul>
-        <li><a class="link" href="">Inicio</a></li>
-        <li><a class="link" href="">Proyectos</a></li>
-        <li><a class="link" href="">Blog</a></li>
+        <li><a class="link" href="/#">Inicio</a></li>
+        <li><a class="link" href="/projects">Proyectos</a></li>
+        <li><a class="link" href="/blog">Blog</a></li>
       </ul>
     </nav>
     <h2 id="logo">DYLAN PEÑA</h2>
     <div id="buttonContainer">
-      <a id="neswletterBtn" class="containedButton" href="">Newsletter</a>
+      <a id="neswletterBtn" class="containedButton" href="#newsletter">Newsletter</a>
     </div>
   </div>
 </header>
@@ -67,9 +67,11 @@
   window.addEventListener("scroll", () => {
     if (window.scrollY > 120) {
       neswletterBtn.classList.remove("containedButton");
-      neswletterBtn.classList.add("headerTextButton");
+      neswletterBtn.classList.add("textButton");
+      neswletterBtn.classList.add("link");
     } else {
-      neswletterBtn.classList.remove("headerTextButton");
+      neswletterBtn.classList.remove("textButton");
+      neswletterBtn.classList.remove("link");
       neswletterBtn.classList.add("containedButton");
     }
   });

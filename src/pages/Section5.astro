@@ -48,3 +48,25 @@
     border-radius: 0 8px 8px 0;
   }
 </style>
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Evita el envío normal del formulario
+
+    const formData = new FormData(form);
+    const data = {};
+    for (const [key, value] of formData) {
+      data[key] = value;
+    }
+
+    fetch("[URL_DEL_WEBHOOK]", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  });
+</script>
