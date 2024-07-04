@@ -1,7 +1,7 @@
 const companies = [
   {
     name: "Horizon",
-    url: "horizonagency.xyz",
+    url: "https://horizonagency.xyz/",
     photo: "/Horizon.png",
   },
   {
