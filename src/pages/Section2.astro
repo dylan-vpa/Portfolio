@@ -1,0 +1,41 @@
+---
+import companies from "../info/companies";
+---
+
+<section>
+  <h2>Compañias</h2>
+  <ul>
+    {
+      companies.map((info) => {
+        return (
+          <li>
+            <a href={info.url} target="_blank" class="">
+              <img src={info.photo} alt={info.name} class="" />
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+  }
+
+  section ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 64px;
+    list-style: none;
+  }
+
+  section ul li a img {
+    height: 40px;
+  }
+</style>

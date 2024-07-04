@@ -1,0 +1,33 @@
+---
+
+---
+
+<div id="scrollIndicator">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="35"
+    height="35"
+    viewBox="0 0 24 24"
+    ><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+    ></path></svg
+  >
+</div>
+
+<style>
+  #scrollIndicator {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s infinite alternate;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(5px);
+    }
+  }
+</style>
