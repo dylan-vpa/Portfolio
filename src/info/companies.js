@@ -20,9 +20,9 @@ const companies = [
     photo: "/Supremacy.png",
   },
   {
-    name: "",
-    url: "https://texdesign.co",
-    photo: "/Texdesign.png",
+    name: "CoderLabs",
+    url: "https://coderlabs.co",
+    photo: "/CoderLabs.png",
   },
 ];
 
