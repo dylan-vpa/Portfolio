@@ -32,16 +32,17 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --siteMaxWidth: 960px;
-    --primary: #252525;
+    --primary: #346D6B;
     --textColor: #252525;
     --lightTextColor: #ffffff;
     --backgroundColor: #ffffff;
     --backgroundGradient: radial-gradient(
-      ellipse 80% 80% at 50% -20%,
-      #7877c64d,
-      #ffffff
+      100% 50% at 50% 0%,
+      #00a3ff21 0,
+      rgba(0, 163, 255, 0) 50%,
+      rgba(0, 163, 255, 0) 100%
     );
-    --buttonHoverBackground: #000000;
+    --buttonHoverBackground: #2b5a58;
     --h1FontSize: 80px;
     --h2FontSize: 32px;
     --h3FontSize: 24px;
@@ -79,7 +80,7 @@ const { title } = Astro.props;
     display: inline-block;
     text-decoration: none;
     color: var(--textColor);
-    transition: ease .3s;
+    transition: ease 0.3s;
   }
 
   .link:hover {
