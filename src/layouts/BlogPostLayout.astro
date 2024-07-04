@@ -1,0 +1,43 @@
+---
+import Layout from "./Layout.astro";
+import { slugify, formatDate } from "../scripts/index";
+
+const { frontmatter } = Astro.props;
+const { title, description, date, category } = frontmatter;
+---
+
+<Layout title={title}>
+  <main>
+    <article>
+      <section>
+        <p>{category}</p>
+        <h1>{title}</h1>
+        <h2>{description}</h2>
+        <p>
+          {
+            formatDate(date)
+          }
+        </p>
+      </section>
+      <hr />
+      <section
+      >
+        <slot />
+      </section>
+    </article>
+  </main>
+</Layout>
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+  }
+
+</style>
