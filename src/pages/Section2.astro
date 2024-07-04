@@ -10,7 +10,9 @@ import companies from "../info/companies";
         return (
           <li>
             <a href={info.url} target="_blank" class="">
-              <img src={info.photo} alt={info.name} class="" />
+              <figure>
+                <img src={info.photo} alt={info.name} class="" />
+              </figure>
             </a>
           </li>
         );
