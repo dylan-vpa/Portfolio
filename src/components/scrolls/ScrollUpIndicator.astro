@@ -6,22 +6,6 @@
     <p>Deslizar →</p>
 </div>
 
-<script is:inline>
-  const scrollUpBtn = document.getElementById("scrollUpBtn");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 120) {
-      scrollUpBtn.classList.remove("hidden");
-    } else {
-      scrollUpBtn.classList.add("hidden");
-    }
-  });
-
-  scrollUpBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
 <style>
   #scrollUpBtn {
     position: fixed;
@@ -51,3 +35,19 @@
     }
   }
 </style>
+
+<script is:inline>
+  const scrollUpBtn = document.getElementById("scrollUpBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 120) {
+      scrollUpBtn.classList.remove("hidden");
+    } else {
+      scrollUpBtn.classList.add("hidden");
+    }
+  });
+
+  scrollUpBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

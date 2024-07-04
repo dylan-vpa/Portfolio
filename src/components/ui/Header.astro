@@ -3,25 +3,43 @@
 ---
 
 <header id="header">
-  <nav>
-    <ul>
-      <li><a class="link" href="">Inicio</a></li>
-      <li><a class="link" href="">Proyectos</a></li>
-      <li><a class="link" href="">Blog</a></li>
-    </ul>
-  </nav>
-  <h2 id="logo">DYLAN PEÑA</h2>
-  <div id="buttonContainer">
-    <a class="containedButton" href="">Newsletter</a>
+  <div>
+    <nav>
+      <ul>
+        <li><a class="link" href="">Inicio</a></li>
+        <li><a class="link" href="">Proyectos</a></li>
+        <li><a class="link" href="">Blog</a></li>
+      </ul>
+    </nav>
+    <h2 id="logo">DYLAN PEÑA</h2>
+    <div id="buttonContainer">
+      <a id="neswletterBtn" class="containedButton" href="">Newsletter</a>
+    </div>
   </div>
 </header>
 
 <style>
+  #header {
+    padding: 16px 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #ffffff42;
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid #d9d9d9;
+  }
 
-  header {
+  div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: var(--siteMaxWidth);
   }
 
   nav ul {
@@ -41,3 +59,22 @@
     justify-content: end;
   }
 </style>
+
+<script is:inline>
+  const neswletterBtn = document.getElementById("neswletterBtn");
+  const logo = document.getElementById("logo")
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 120) {
+      neswletterBtn.classList.remove("containedButton");
+      neswletterBtn.classList.add("headerTextButton");
+    } else {
+      neswletterBtn.classList.remove("headerTextButton");
+      neswletterBtn.classList.add("containedButton");
+    }
+  });
+
+  scrollUpBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

@@ -1,83 +1,50 @@
----
-import companies from "../info/companies";
----
-
 <section>
-  <h2>TRAYECTORIA</h2>
-  <ul id="cardsContainer">
-    {
-      companies.map((info) => {
-        return (
-          <ul class="timelineItem">
-            <div class="timelineBullet">&bull;</div>
-            <div class="timelineContent">
-              <h3>{info.name}</h3>
-              <>
-                <p>{info.description}</p>
-                <a
-                  href={info.url}
-                  target="_blank"
-                  class="textButton"
-                >
-                  <span class="link">Conoce mas</span><span>→</span>
-                </a>
-              </>
-            </div>
-          </ul>
-        );
-      })
-    }
-  </ul>
+  <article>
+    <div>
+      <h2>Suscríbete a mi Newsletter</h2>
+      <p>Mantente al día con articulos sobre emprendimiento y tecnologia</p>
+    </div>
+    <form action="#" method="post" autocomplete="off">
+      <input
+        type="email"
+        name="email"
+        placeholder="Tu correo electrónico"
+        required
+      />
+      <button type="submit">→</button>
+    </form>
+  </article>
 </section>
 
 <style>
-  section {
-    margin: 64px 0;
+  section article {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-  }
-  .timelineItem {
-    position: relative;
-    margin-bottom: 64px;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
   }
 
-  .timelineItem::before {
-    content: "";
-    position: absolute;
-    left: 0.5rem;
-    top: 0;
-    height: calc(100% + 64px);
-    border-left: 2px solid rgba(0, 0, 0, 0.2);
+  section article form {
+    border: 1px solid #000000;
+    width: fit-content;
+    border-radius: 8px;
   }
 
-  @media (min-width: 768px) {
-    .timelineItem {
-      display: grid;
-      grid-template-columns: 1fr;
-      column-gap: 3.75rem;
-      align-items: start;
-    }
+  section article form input[type="email"] {
+    padding: 0 24px;
+    width: 250px;
+    font-size: var(--pFontSize);
+    background-color: transparent;
   }
 
-  .timelineBullet {
-    position: absolute;
-    left: 0.15rem;
-    top: -0.45rem;
-    font-size: 36px;
-    color: var(--primary);
-  }
-
-  .timelineContent {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-left: 2.5rem;
-  }
-
-  .timelineContent ul {
-    display: flex;
-    gap: 8px;
-    list-style: none;
+  section article form button {
+    padding: 14px 24px;
+    background: var(--primary);
+    color: var(--lightTextColor);
+    border: none;
+    cursor: pointer;
+    font-size: var(--pFontSize);
+    border-radius: 0 8px 8px 0;
   }
 </style>
