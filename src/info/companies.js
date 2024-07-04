@@ -16,12 +16,12 @@ const companies = [
   },
   {
     name: "Supremacy",
-    url: "supremacycs.com",
+    url: "https://supremacycs.com",
     photo: "/Supremacy.png",
   },
   {
     name: "",
-    url: "texdesign.co",
+    url: "https://texdesign.co",
     photo: "/Texdesign.png",
   },
 ];
