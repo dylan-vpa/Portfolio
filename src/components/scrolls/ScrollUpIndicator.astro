@@ -1,0 +1,53 @@
+---
+
+---
+
+<div id="scrollUpBtn" class="hidden">
+    <p>Deslizar →</p>
+</div>
+
+<script is:inline>
+  const scrollUpBtn = document.getElementById("scrollUpBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 120) {
+      scrollUpBtn.classList.remove("hidden");
+    } else {
+      scrollUpBtn.classList.add("hidden");
+    }
+  });
+
+  scrollUpBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<style>
+  #scrollUpBtn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    color: var(--primary);
+    cursor: pointer;
+    animation: fadeIn 0.7s 1;
+    rotate: -90deg;
+    transition: ease.3s;
+  }
+
+  #scrollUpBtn:hover {
+    bottom: 90px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

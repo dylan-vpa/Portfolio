@@ -24,6 +24,16 @@ const companies = [
     url: "https://coderlabs.co",
     photo: "/CoderLabs.png",
   },
+  {
+    name: "ContentCraft",
+    url: "",
+    photo: "/Contentcraft.png",
+  },
+  {
+    name: "RISE",
+    url: "https://risejna.vercel.app",
+    photo: "/Rise.png",
+  },
 ];
 
 export default companies;

@@ -1,0 +1,49 @@
+<section>
+  <figure>
+    <img src="Me.jpg" alt="" />
+  </figure>
+  <div>
+    <h2>SOBRE MI</h2>
+    <p>
+        Hola, soy un joven desarrollador web que busca seguir aprendiendo para ampliar sus horizontes. Me apasiona la música, el café y la tecnología. Gracias por el apoyo. Hola, soy un joven desarrollador web que busca seguir aprendiendo para ampliar sus horizontes. Me apasiona la música, el café y la tecnología. Gracias por el apoyo. Hola, soy un joven desarrollador web que busca seguir aprendiendo para ampliar sus horizontes. Me apasiona la música, el café y la tecnología. Gracias por el apoyo.
+    </p>
+    <a href="" class="textButton"><span class="link">Conoce mas</span><span>→</span></a>
+  </div>
+</section>
+
+<style>
+  section {
+    margin: 64px 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  section figure {
+    position: relative;
+  }
+
+  section figure img {
+    width: 400px;
+    border-radius: 32px;
+  }
+
+  section figure::before {
+    position: absolute;
+    right: -125px;
+    bottom: -125px;
+    z-index: -1;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #7877c64d;
+    border-radius: 50%;
+    filter: blur(50px);
+  }
+
+  section div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>

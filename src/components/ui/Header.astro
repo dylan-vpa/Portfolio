@@ -3,7 +3,6 @@
 ---
 
 <header id="header">
-  <h2>Dylan Peña</h2>
   <nav>
     <ul>
       <li><a class="link" href="">Inicio</a></li>
@@ -11,10 +10,14 @@
       <li><a class="link" href="">Blog</a></li>
     </ul>
   </nav>
-  <a class="containedButton" href="">Newsletter</a>
+  <h2 id="logo">DYLAN PEÑA</h2>
+  <div id="buttonContainer">
+    <a class="containedButton" href="">Newsletter</a>
+  </div>
 </header>
 
 <style>
+
   header {
     display: flex;
     justify-content: space-between;
@@ -27,4 +30,14 @@
     list-style: none;
   }
 
+  #logo {
+    font-family: serif;
+    font-size: 24px;
+  }
+
+  #buttonContainer {
+    width: 181.33px;
+    display: flex;
+    justify-content: end;
+  }
 </style>
