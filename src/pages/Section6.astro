@@ -1,0 +1,140 @@
+<section>
+  <article>
+    <div>
+      <h2>Suscríbete a mi Newsletter</h2>
+      <p>Mantente al día con articulos sobre emprendimiento y tecnologia</p>
+    </div>
+    <form id="form" action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST" autocomplete="off">
+      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Subscribete</button>
+    </form>
+    <div id="alert-container" class="alert"></div>
+  </article>
+</section>
+
+<style>
+  section article {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    background-color: #faf9fb;
+    border-radius: 8px;
+  }
+
+  section article form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  section article form input[type="email"] {
+    padding: 8px 16px;
+    width: 340px;
+    background-color: #f2eff3;
+    border-radius: 8px;
+    font-size: var(--pFontSize);
+  }
+
+  section article form button {
+    padding: 8px 16px;
+    background: var(--primary);
+    color: var(--lightTextColor);
+    border: none;
+    cursor: pointer;
+    font-size: var(--pFontSize);
+    border-radius: 8px;
+  }
+
+  #alert-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    align-items: center;
+    grid-area: 8px;
+    background-color: #fff;
+    color: #333;
+    padding: 16px 30px;
+    border-radius: 16px;
+    border: 1px solid #d9d9d9;
+    display: none;
+    z-index: 100;
+    font-size: 16px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #alert-container.error {
+    color: #f44336;
+  }
+
+  #alert-container svg {
+    margin-right: 8px;
+  }
+</style>
+
+<script type="module">
+  import emailjs from "https://cdn.skypack.dev/emailjs-com";
+  emailjs.init("ufjBxZiEgyN9PahBs");
+
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const templateParams = {
+      email: email,  
+      name: "Nuevo suscriptor", 
+      message: "Se ha suscrito al newsletter." 
+    };
+
+    emailjs
+      .send("service_8jpsdmo", "template_9k8zknr", templateParams) 
+      .then((response) => {
+        showAlert("¡Suscrito correctamente!", false);
+        form.reset();
+      })
+      .catch((error) => {
+        showAlert("Error al suscribirte. Intenta nuevamente.", true);
+      });
+  });
+
+  function showAlert(message, isError) {
+    const alertContainer = document.getElementById("alert-container");
+    alertContainer.textContent = message;
+    alertContainer.classList.toggle('error', isError);
+    alertContainer.style.display = "flex";
+
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("width", "24");
+    icon.setAttribute("height", "24");
+    icon.setAttribute("viewBox", "0 0 24 24");
+    icon.setAttribute("fill", "none");
+    icon.setAttribute("stroke-width", "2");
+    icon.setAttribute("stroke-linecap", "round");
+    icon.setAttribute("stroke-linejoin", "round");
+
+    if (isError) {
+      icon.setAttribute("stroke", "#f44336"); 
+      icon.innerHTML = `
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      `;
+    } else {
+      icon.setAttribute("stroke", "#346D6B"); 
+      icon.innerHTML = `
+        <polyline points="20 6 9 17 4 12"></polyline>
+      `;
+    }
+
+    alertContainer.prepend(icon);
+
+    setTimeout(() => {
+      alertContainer.style.display = "none";
+    }, 3000);
+  }
+</script>

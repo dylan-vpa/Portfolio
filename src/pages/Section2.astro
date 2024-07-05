@@ -6,7 +6,7 @@ import companies from "../info/companies";
   <h2>Mis compañias</h2>
   <ul>
     {
-      companies.map((info) => {
+      companies.slice(0, 6).map((info) => {
         return (
           <li>
             <a href={info.url} target="_blank" class="">
@@ -25,19 +25,32 @@ import companies from "../info/companies";
   section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 64px;
+    gap: 32px;
   }
 
   section ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 64px;
+    gap: 8px;
     list-style: none;
   }
 
-  section ul li a img {
+  section ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:32px 0;
+    background-color: #faf9fb;
+    border-radius: 8px;
+    width: 314px;
+  }
+
+  section ul li:hover {
+    background-color: #f2eff3;
+  }
+
+  section ul li a figure img {
     height: 40px;
   }
 </style>

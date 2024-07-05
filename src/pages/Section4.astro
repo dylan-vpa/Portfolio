@@ -1,86 +1,105 @@
----
-import { formatBlogPosts, formatDate } from "../scripts/index";
-const posts = await Astro.glob("./blog/*.md");
-const formattedPosts = formatBlogPosts(posts, {
-  filterOutDrafts: true,
-  filterOutFuturePosts: true,
-  sortByDate: true,
-  limit: 3,
-});
----
-
 <section>
-  <h2>Posts mas recientes</h2>
-  <ul>
-    {
-      formattedPosts.slice(0, 3).map((info) => {
-        return (
-          <li class="card">
-            <a href={info.url}>
-              <figure>
-                <img
-                  src={info.frontmatter.image ? info.frontmatter.image.src : ""}
-                  alt=""
-                />
-              </figure>
-              <p class="categoryandDateContainer">
-                {formatDate(info.frontmatter.date)} <span class="category">{info.frontmatter.category}</span>
-              </p>
-              <h4>{info.frontmatter.title}</h4>
-              <p>{info.frontmatter.description}</p>
-              <span />
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
-  <a class="containedButton" href="/blog">Ver mas</a>
+  <a href="">
+    <div>
+      <h2>Como si crecer tu marca personal</h2>
+      <p>
+        Acompañame en este espacio formativo donde obtendras y aprenderas las
+        bases para elevar tu marca personal
+      </p>
+    </div>
+    <div id="countDown">
+      <div class="timeBox">
+        <h3 id="days" class="time"></h3>
+        <div class="timeText">Días</div>
+      </div>
+      <div class="timeBox">
+        <h3 id="hours" class="time"></h3>
+        <div class="timeText">Horas</div>
+      </div>
+      <div class="timeBox">
+        <h3 id="minutes" class="time"></h3>
+        <div class="timeText">Minutos</div>
+      </div>
+      <div class="timeBox">
+        <h3 id="seconds" class="time"></h3>
+        <div class="timeText">Segundos</div>
+      </div>
+    </div>
+  </a>
 </section>
 
 <style>
   section {
-    margin: 0 0 64px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
-
-  ul {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    list-style: none;
-  }
-
-  .card {
-    width: max.width: 290px;
-  }
-
-  .card a {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .card a figure img {
-    max-width: 290px;
+    padding: 32px;
+    background-color: #faf9fb;
     border-radius: 8px;
   }
 
-  .categoryandDateContainer {
+  section:hover {
+    background-color: #f5f5f5;
+  }
+
+  section:hover .timeBox {
+    background-color: #e8e5ea;
+  }
+
+  section a {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  #countDown {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .timeBox {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    width: 130px;
+    height: 100px;
+    background-color: #f2eff3;
+    border-radius: 8px;
   }
 
-  .category {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #f8f8f8;
-    border-radius: 32px;
+  .timeText {
+    color: var(--primary);
+    font-weight: 500;
   }
-
 </style>
+
+<script is:inline>
+  var eventDate = new Date("Aug 03, 2024 16:00:00").getTime();
+
+  var timer = setInterval(function () {
+    var currentDate = new Date().getTime();
+    var distance = eventDate - currentDate;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("days").textContent = "00";
+      document.getElementById("hours").textContent = "00";
+      document.getElementById("minutes").textContent = "00";
+      document.getElementById("seconds").textContent = "00";
+    }
+  }, 1000);
+</script>
