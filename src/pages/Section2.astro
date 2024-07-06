@@ -3,7 +3,7 @@ import companies from "../info/companies";
 ---
 
 <section>
-  <h2>Mis compañías</h2>
+  <h2>Mis <a class="link">compañías</a></h2>
   <ul>
     {
       companies.slice(0, 6).map((info) => {
@@ -28,6 +28,10 @@ import companies from "../info/companies";
     gap: 32px;
   }
 
+  section h2 a {
+    color: #252525;
+  }
+
   section ul {
     display: flex;
     justify-content: center;
@@ -36,7 +40,7 @@ import companies from "../info/companies";
     list-style: none;
   }
 
-  section ul li {
+  section ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +50,7 @@ import companies from "../info/companies";
     width: 314px;
   }
 
-  section ul li:hover {
+  section ul li a:hover {
     background-color: #f2eff3;
   }
 

@@ -1,16 +1,17 @@
 ---
-import { formatBlogPosts, formatDate } from "../scripts/index";
-const posts = await Astro.glob("./blog/*.md");
+import { formatBlogPosts, formatDate } from "../../scripts/index";
+const posts = await Astro.glob("../blog/*.md");
 const formattedPosts = formatBlogPosts(posts, {
   filterOutDrafts: true,
   filterOutFuturePosts: true,
   sortByDate: true,
   limit: 3,
+  categoryFilter: "EVENT"
 });
 ---
 
 <section>
-  <h2>Posts más recientes</h2>
+  <h2>Eventos recientes</h2>
   <ul>
     {
       formattedPosts.slice(0, 3).map((info) => {
