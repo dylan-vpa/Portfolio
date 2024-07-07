@@ -2,8 +2,7 @@
 import companies from "../../info/companies";
 ---
 
-<section>
-  <h2>Trayectoria</h2>
+<section> 
   <ul id="cardsContainer">
     {
       companies.map((info) => {
@@ -12,7 +11,7 @@ import companies from "../../info/companies";
             <div class="timelineBullet">&bull;</div>
             <div class="timelineContent">
               <div class="companieTop">
-                <a href={info.url} class="link">
+                <a href={info.url} target="_blank" class="link">
                   <h2>{info.name}</h2>
                 </a>
                 <p class="tag tagCompanies">{info.position}</p>
