@@ -4,7 +4,9 @@
 
 <header id="header">
   <div>
-    <h2 id="logo">Dylan Peña</h2>
+    <h2 id="logo">
+      <a href="/#">Dylan Peña</a>
+    </h2>
     <nav>
       <ul>
         <li><a class="link" href="/#">Inicio</a></li>
@@ -13,11 +15,41 @@
         <li><a class="link" href="/blog">Blog</a></li>
       </ul>
     </nav>
-    <div id="buttonContainer">
-      <a id="neswletterBtn" class="containedButton" href="#newsletter">Newsletter</a>
+    <div id="buttonContainers">
+      <a id="neswletterBtn" class="containedButton" href="#newsletter"
+        >Newsletter</a
+      >
+      <button id="openModalBtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+          ></path>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modalContent">
+    <span class="close">&times;</span>
+    <ul>
+      <li><a class="" href="/#">Inicio</a></li>
+      <li><a class="" href="/companies">Compañías</a></li>
+      <li><a class="" href="/events">Eventos</a></li>
+      <li><a class="" href="/blog">Blog</a></li>
+    </ul>
+  </div>
+</div>
 
 <style>
   #header {
@@ -30,7 +62,7 @@
     justify-content: center;
     width: 100%;
     background: #ffffff;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid #faf9fb;
   }
 
   div {
@@ -39,6 +71,10 @@
     align-items: center;
     width: 100%;
     max-width: var(--siteMaxWidth);
+  }
+
+  #header div nav {
+    display: block;
   }
 
   nav ul {
@@ -51,16 +87,121 @@
     font-size: 24px;
   }
 
-  #buttonContainer {
+  #buttonContainers {
     width: 181.33px;
     display: flex;
     justify-content: end;
+    gap: 8px;
+  }
+
+  #openModalBtn {
+    display: none;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modalContent {
+    margin: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #faf9fb;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .modalContent ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+  }
+
+  .modalContent ul li a {
+    padding: 12px;
+    border-radius: 8px;
+    width: calc(100vw - 32px);
+  }
+
+  .modalContent ul li a:hover {
+    background-color: #f2eff3;
+  }
+
+  .close {
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 900px) {
+    #header {
+      padding: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    #header div nav {
+      display: none;
+    }
+
+    div {
+      align-items: center;
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #buttonContainers {
+      justify-content: center;
+    }
+
+    #openModalBtn {
+      display: block;
+    }
   }
 </style>
 
 <script is:inline>
+  const modalLinks = document.querySelectorAll("#modal a");
 
-  scrollUpBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  document
+    .getElementById("openModalBtn")
+    .addEventListener("click", function () {
+      document.getElementById("modal").style.display = "block";
+    });
+
+  document
+    .getElementsByClassName("close")[0]
+    .addEventListener("click", function () {
+      document.getElementById("modal").style.display = "none";
+    });
+
+  window.addEventListener("click", function (event) {
+    if (event.target == document.getElementById("modal")) {
+      document.getElementById("modal").style.display = "none";
+    }
   });
 </script>
