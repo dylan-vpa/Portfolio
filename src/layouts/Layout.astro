@@ -5,10 +5,9 @@ import Footer from "../components/ui/Footer.astro";
 
 interface Props {
   title: string;
-  description: string;
 }
 
-const { title, description } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +22,18 @@ const { title, description } = Astro.props;
     />
     <meta
       name="description"
-      content={description}
+      content="¡Ey! Soy Dylan, un emprendedor y desarrollador de software colombiano apasionado por el blogging y el aprendizaje autodidacta y el cáfe frío. Mi proyecto principal es Horizon. Una agencia de capital privado enfocada en apoyar el crecimiento de empresas y start-ups. Además, me encuentro desarrollando una línea de microservicios para empresas y desarrolladores. Como emprendedor, he cultivado un portafolio diverso de compañías que reflejan mi visión y compromiso con la innovación y el crecimiento. Cada una de estas empresas ha sido seleccionada cuidadosamente, no solo por su potencial de rentabilidad, sino también por su capacidad para generar un impacto positivo en la sociedad. A continuación, les invito a explorar en detalle cada una de estas empresas y descubrir cómo están transformando sus respectivos sectores. Mi compromiso con la innovación y el crecimiento no se limita a la creación
+    de empresas. A lo largo de mi trayectoria, he participado activamente en una
+    variedad de eventos que me han permitido compartir conocimientos, conectar
+    con otros líderes de la industria y contribuir al desarrollo del ecosistema
+    emprendedor. A continuación, le invito a explorar algunos de los eventos más
+    destacados en los que he tenido el privilegio de participar o participare. Además de mi faceta emprendedora, soy un apasionado del blogging. A través
+    de este blog, compartiré mis experiencias, conocimientos y reflexiones sobre
+    este fascinante mundo. Te invito a acompañarme en este viaje de
+    descubrimiento y aprendizaje, donde exploraremos juntos las últimas
+    tendencias, consejos prácticos y curiosidades relacionadas con el
+    emprendimiento y el desarrollo de software. ¡Espero que disfrutes de este
+    espacio tanto como yo disfruto creándolo!"
     />
     <meta
       name="keywords"
