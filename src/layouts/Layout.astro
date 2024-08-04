@@ -5,9 +5,11 @@ import Footer from "../components/ui/Footer.astro";
 
 interface Props {
   title: string;
+  description: string;
 }
 
 const { title } = Astro.props;
+const { description } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,6 +18,24 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
+    <meta
+      name="title"
+      content="Dylan Peña | CEO of Horizon & Software Developer"
+    />
+    <meta
+      name="description"
+      content={description}
+    />
+    <meta
+      name="keywords"
+      content="Dylan, Peña, Horizon, Desarrollo Web, Software Developer, CEO, COO, Contentcraft Expert, Founder, Partner, Businner Manager, Betteru, MakeCode, Supremacy, CoderLabs, ContentCraft, "
+    />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="15 days" />
+    <meta name="author" content="Dylan Peña" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -123,7 +143,7 @@ const { title } = Astro.props;
 
   /*Layout*/
   ::selection {
-    background-color: #eae8e8; 
+    background-color: #eae8e8;
     color: var(--primary);
   }
 
