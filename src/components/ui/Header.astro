@@ -4,6 +4,7 @@
 
 <header id="header">
   <div>
+    <h2 id="logo">Dylan Peña</h2>
     <nav>
       <ul>
         <li><a class="link" href="/#">Inicio</a></li>
@@ -12,7 +13,6 @@
         <li><a class="link" href="/blog">Blog</a></li>
       </ul>
     </nav>
-    <h2 id="logo">Dylan Peña</h2>
     <div id="buttonContainer">
       <a id="neswletterBtn" class="containedButton" href="#newsletter">Newsletter</a>
     </div>
@@ -22,16 +22,14 @@
 <style>
   #header {
     padding: 16px 0;
-    position: fixed;
+    position: sticky;
     z-index: 3;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
     width: 100%;
-    background: #ffffff42;
-    backdrop-filter: blur(6.1px);
-    -webkit-backdrop-filter: blur(6.1px);
+    background: #ffffff;
     border-bottom: 1px solid #d9d9d9;
   }
 
@@ -61,20 +59,6 @@
 </style>
 
 <script is:inline>
-  const neswletterBtn = document.getElementById("neswletterBtn");
-  const logo = document.getElementById("logo")
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 120) {
-      neswletterBtn.classList.remove("containedButton");
-      neswletterBtn.classList.add("textButton");
-      neswletterBtn.classList.add("link");
-    } else {
-      neswletterBtn.classList.remove("textButton");
-      neswletterBtn.classList.remove("link");
-      neswletterBtn.classList.add("containedButton");
-    }
-  });
 
   scrollUpBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
