@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import Newsletter from "../components/ui/Newsletter.astro";
 import { slugify, formatDate } from "../scripts/index";
 
 const { frontmatter } = Astro.props;
@@ -26,6 +27,8 @@ const { title, description, date, category } = frontmatter;
       </section>
     </article>
   </main>
+  <hr>
+  <Newsletter />
 </Layout>
 <style>
   article {
@@ -38,6 +41,10 @@ const { title, description, date, category } = frontmatter;
     display: flex;
     flex-direction: column;
     gap: 16px; 
+  }
+
+  hr {
+    border: 0.1px solid #6b728010;
   }
 
 </style>
