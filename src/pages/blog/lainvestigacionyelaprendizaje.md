@@ -5,7 +5,7 @@ date: 2022-11-20
 description: "Cómo investigar transforma nuestra manera de aprender y entender el mundo."
 image: { src: "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg", alt: "Persona investigando en una laptop con notas a su alrededor" }
 draft: false
-category: TECHNOLOGY   
+category: SCIENCE   
 ---
 
 <img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg" alt="Persona tomando apuntes mientras investiga" width="100%" style="border-radius: 8px;"/>
